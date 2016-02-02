@@ -42,7 +42,7 @@ export default class Story extends React.Component {
   pressedStory(story) {
     this.props.navigator.push({
       component: StoryDetail,
-      props: {story}
+      props: {story, navigator: this.props.navigator}
     });
   }
 
