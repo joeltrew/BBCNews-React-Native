@@ -8,13 +8,18 @@ var {
 	TouchableHighlight,
 	ScrollView
 } = React;
+
+
 var Video = require('react-native-video');
 var Link = require('./Components/Link');
+var VideoPlaceHolder = require('./Components/VideoPlaceHolder');
 
 module.exports = {
 
-	createReactElementsWithXMLRoot(xmlRootElement) {
+	media: null,
 
+	createReactElementsWithXMLRoot(xmlRootElement, media) {
+		this.media = media;
 		return new Promise((resolve, reject) => {
 			this.mapToReact(xmlRootElement, (reactElementsArray, error) => {
 				if (error) {
@@ -45,7 +50,6 @@ module.exports = {
 			if (tag.type === 'text') {
 				resolve(tag.raw)
 			}
-			console.log(tag.name)
 			switch(tag.name) {
 
 				case 'image': {
@@ -104,6 +108,13 @@ module.exports = {
 				}
 				break;
 
+				case 'video': {
+					this.createVideoElement(tag, index, ( element )=> {
+						resolve(element)
+					})
+				}
+				break;
+
 				default: 
 
 				resolve(React.createElement(Text, {style:[styles.text, styles.paragraph] , key: index}, "ELEMENT NOT FOUND"));
@@ -112,31 +123,37 @@ module.exports = {
 	},
 
 	createImageElement(tag, index, completion) {
-		this.getImageSize(tag.attribs.id).then( height => {
-			const image = React.createElement(Image, { 
-													 	 style: {flex: 1},
-													 	 source:{uri: this.handleImageUrl(tag.attribs.id)},
-													 	 key: index 
-													 	}, []);
-			completion(React.createElement(View, { 
-			  											style: [styles.image, {height}],
-			  											key: index
-			  										}, image));
-		})
+			
+			const image = this.imageForId(tag.attribs.id);
+			const height = image.content.height < 200 ? image.content.height : 200
+
+			const imageElement = React.createElement(Image, 
+				{ 
+			 	 style: {flex: 1, backgroundColor: '#eeeeee'},
+			 	 source:{uri: image.content.href},
+			 	 key: index 
+			 	}, []);
+
+			completion(React.createElement(View,
+			 { 
+				style: [styles.image, {height}],
+				key: index
+			}, imageElement));
 	},
 
-	getImageSize(imageUrl) {
+	getImage(imageUrl) {
 		return new Promise((resolve, reject) => {
-			Image.getSize(this.handleImageUrl(imageUrl), (width, height) => {
-				var imageHeight;
+			
+			const height = foundImage.content.height
+			let imageHeight;
 				if (height < 200) {
 					imageHeight = height
 				} else {
 					imageHeight = 200;
 				}
-				resolve(imageHeight);
-			})
-		})
+
+			resolve(imageHeight);
+		});
 	},
 
 	createParagraphElement(tag, index, completion) {
@@ -195,106 +212,28 @@ module.exports = {
 		}));		
 	},
 
-	reactElementForTagName(name, attrs, index, children) {
-		let element;
+	createVideoElement(tag, index, completion) {
 
-		switch(name) {
-			case 'paragraph':
-				element = React.createElement(Text, {style:[styles.text, styles.paragraph] , key: index}, children);
-			break;
+		const foundVideo = this.media.videos.find(video => {
+			return video.content.id === tag.attribs.id
+		});
 
-			case 'image':
+		const videoPlaceHolder = React.createElement(VideoPlaceHolder, {video: foundVideo}, []);
 
-			break;
-
-			case 'bold':
-				element = React.createElement(Text, {style: [styles.text, styles.bold], key: index }, children);
-			break;
-
-			case 'italic':
-				element = React.createElement(Text, {style: [styles.text, styles.italic], key: index}, children);
-			break;
-
-			case 'crosshead':
-				element = React.createElement(Text, {style: [styles.crosshead], key: index}, children);
-			break;
-
-			case 'list':
-				element = React.createElement(View, {style: [styles.list], key: index}, children);
-			break;
-
-			case 'listItem':
-				var bulletPoint = React.createElement(Text, {style: [styles.text], key: 'bullet'+index}, ["• "])
-				
-				var text = React.createElement(Text, {style: [styles.text, {flex: 1}], key: index}, children);
-				element = React.createElement(View, {style: [styles.listItem], key: index}, [bulletPoint, text]);
-
-			break;
-
-
-
-			case 'video':
-			let rr;
-			let video;
-					 video = React.createElement(Video, {
-								style:{flex:1}
-								,source: {uri: 'http://hello.com'}
-								,rate: 1.0                // 0 is paused, 1 is normal.
-					       	,volume: 1.0                 // 0 is muted, 1 is normal.
-					       	,muted: false                // Mutes the audio entirely.
-					       	,paused: false   
-					       	,controls: true
-					       });
-			
-
-			return React.createElement(View, 
-					{ 
-					  style: [styles.video],
-	           key: index
-	        		}, video);
-
-			break;
-
-			default:
-			console.log(name)
-				element = React.createElement(Text, {style: {color: 'black'}, key: index}, 'hu');
-		}
-
-		return element;
+		completion(React.createElement(View, { style: [styles.video], key: index }, videoPlaceHolder));
 	},
 
-	reactElementForTagNameAsync(element, completion) {
 
-		if (!this.handleImageUrl(element.attribs.id)) {
-				completion(React.createElement(View, { style:{flex: 1, height: 3, backgroundColor: '#eeeeee', marginVertical: 10, marginHorizontal:15}, key: element.index }));
-		} else {
 
-			Image.getSize(this.handleImageUrl(element.attribs.id), (width, height) => {
-				var imageHeight;
-				if (height < 200) {
-					imageHeight = height
-				} else {
-					imageHeight = 200;
-				}
-				completion(this.createImageElement(element.attribs, element.index, imageHeight));
-			})
 
-		}
+/*** Util Functions ***/
+
+	imageForId(imageId) {
+		return this.media.images.find(image => {
+			return image.content.id === imageId
+		});
 	},
 
-	createReactLinkElement(element, index) {
-		var caption = element.children.find( child => {
-			return child.name === 'caption';
-		})
-
-		var url = element.children.find( child => {
-			return child.name === 'url';
-		})
-
-		var text = React.createElement(Text, {}, caption.children[0].raw);
-
-		return React.createElement(Link, {url:url.attribs.href, key: index}, text);
-	},
 
 	handleImageUrl(id) {
 		if (id.indexOf('/cpsprodpb/') > -1) {
@@ -306,11 +245,9 @@ module.exports = {
 	},
 
 	fetchVideoInfo(videoId, completion) {
-		const strippedId = videoId.substring('/video/'.length);
-      fetch(`http://open.live.bbc.co.uk/mediaselector/5/select/version/2.0/format/json/mediaset/journalism-http-tablet/vpid/${strippedId}/proto/http/transferformat/hls/`)
+      fetch(`http://open.live.bbc.co.uk/mediaselector/5/select/version/2.0/format/json/mediaset/journalism-http-tablet/vpid/${videoId}/proto/http/transferformat/hls/`)
       .then((response) => response.json())
       .then((responseData) => {
-      	console.log('complete network')
       	completion(responseData.media[0].connection[0].href);
       })
       .done();
@@ -366,9 +303,8 @@ var styles = StyleSheet.create({
 		},
 
 		image: {
-			flex:1,
+			flex:2,
 			marginVertical: 10,
-			alignItems: 'stretch'
 		}
 
 

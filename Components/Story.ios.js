@@ -13,6 +13,7 @@ var StoryDetail = require('./StoryDetail');
 var moment = require('moment');
 
 export default class Story extends React.Component {
+  
   static propTypes = {
     name: React.PropTypes.string,
   };

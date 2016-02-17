@@ -9,7 +9,6 @@
 
 var Loader = require('react-native-angular-activity-indicator');
 var Story = require('./Story');
-
 var Feed = React.createClass({
 
 
@@ -28,18 +27,30 @@ var Feed = React.createClass({
       this.fetchData()
     },
 
+    filterNews(news) {
+      return new Promise((res, rej) => {
+         const filtered = news.filter( item => {
+            return item.content.format === 'bbc.mobile.news.format.textual'
+        })
+         res(filtered);
+      })
+      
+    },
+
     fetchData() {
       this.setState({isRefreshing: true});
 
       fetch('http://trevor-producer-cdn.api.bbci.co.uk/content/cps/news/world')
       .then((response) => response.json())
-      .then((responseData) => {
-
+      .then((responseData) => this.filterNews(responseData.relations))
+      .then((newsItems) => 
+      {
+        console.log(newsItems);
         this.setState({isAnimating: false})
         
         setTimeout(() => {
           this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(responseData.relations),
+            dataSource: this.state.dataSource.cloneWithRows(newsItems),
             loaded: true,
             isRefreshing: false
 
