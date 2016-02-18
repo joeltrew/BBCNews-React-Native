@@ -23,7 +23,6 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		FF15FE811C59738C00E4BC7E /* libAngularActivityLoadingIndicator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF15FE801C59738200E4BC7E /* libAngularActivityLoadingIndicator.a */; };
-		FF15FE821C59738C00E4BC7E /* libXMLParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF15FE7A1C59737D00E4BC7E /* libXMLParser.a */; };
 		FF15FF111C59898700E4BC7E /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF15FF101C59897800E4BC7E /* libBVLinearGradient.a */; };
 		FF65B65C1C5D7768000EB54D /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF65B6581C5D7740000EB54D /* libRCTVideo.a */; };
 /* End PBXBuildFile section */
@@ -106,13 +105,6 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
-		FF15FE791C59737D00E4BC7E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FF15FE6B1C59737D00E4BC7E /* XMLParser.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = XMLParser;
-		};
 		FF15FE7F1C59738200E4BC7E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FF15FE7B1C59738200E4BC7E /* AngularActivityLoadingIndicator.xcodeproj */;
@@ -158,7 +150,6 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		FF15FE6B1C59737D00E4BC7E /* XMLParser.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XMLParser.xcodeproj; path = ../Libraries/XMLParser/XMLParser.xcodeproj; sourceTree = "<group>"; };
 		FF15FE7B1C59738200E4BC7E /* AngularActivityLoadingIndicator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AngularActivityLoadingIndicator.xcodeproj; path = ../Libraries/AngularActivityLoadingIndicator/AngularActivityLoadingIndicator.xcodeproj; sourceTree = "<group>"; };
 		FF15FF0B1C59897800E4BC7E /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		FF65B6491C5D7740000EB54D /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
@@ -179,7 +170,6 @@
 				FF65B65C1C5D7768000EB54D /* libRCTVideo.a in Frameworks */,
 				FF15FF111C59898700E4BC7E /* libBVLinearGradient.a in Frameworks */,
 				FF15FE811C59738C00E4BC7E /* libAngularActivityLoadingIndicator.a in Frameworks */,
-				FF15FE821C59738C00E4BC7E /* libXMLParser.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
@@ -305,7 +295,6 @@
 				FF65B6491C5D7740000EB54D /* RCTVideo.xcodeproj */,
 				FF15FF0B1C59897800E4BC7E /* BVLinearGradient.xcodeproj */,
 				FF15FE7B1C59738200E4BC7E /* AngularActivityLoadingIndicator.xcodeproj */,
-				FF15FE6B1C59737D00E4BC7E /* XMLParser.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
@@ -345,14 +334,6 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* BBCNews.app */,
 				00E356EE1AD99517003FC87E /* BBCNewsTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FF15FE6C1C59737D00E4BC7E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FF15FE7A1C59737D00E4BC7E /* libXMLParser.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -499,10 +480,6 @@
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
-				{
-					ProductGroup = FF15FE6C1C59737D00E4BC7E /* Products */;
-					ProjectRef = FF15FE6B1C59737D00E4BC7E /* XMLParser.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -581,13 +558,6 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FF15FE7A1C59737D00E4BC7E /* libXMLParser.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libXMLParser.a;
-			remoteRef = FF15FE791C59737D00E4BC7E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		FF15FE801C59738200E4BC7E /* libAngularActivityLoadingIndicator.a */ = {
@@ -730,6 +700,7 @@
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
@@ -741,13 +712,16 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = BBCNews;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -757,6 +731,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = BBCNews;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};

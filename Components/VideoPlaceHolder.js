@@ -68,7 +68,7 @@ export default class VideoPlaceHolder extends React.Component {
 
     return (
           <Image source={{uri: this.state.imageUrl}} style={styles.placeholder} >
-          <TouchableHighlight onPress={this.pressedPlaceholder.bind(this)}>
+          <TouchableHighlight style={{borderRadius: 50}} onPress={this.pressedPlaceholder.bind(this)}>
             <View style={styles.buttonCircle}>
               <View style={styles.playButton}></View>
             </View>
