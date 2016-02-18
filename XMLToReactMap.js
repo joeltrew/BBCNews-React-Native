@@ -141,21 +141,6 @@ module.exports = {
 			}, imageElement));
 	},
 
-	getImage(imageUrl) {
-		return new Promise((resolve, reject) => {
-			
-			const height = foundImage.content.height
-			let imageHeight;
-				if (height < 200) {
-					imageHeight = height
-				} else {
-					imageHeight = 200;
-				}
-
-			resolve(imageHeight);
-		});
-	},
-
 	createParagraphElement(tag, index, completion) {
 		this.mapToReact(tag, (childElements => {
 			completion(React.createElement(Text, {style:[styles.text, styles.paragraph] , key: index}, childElements));
