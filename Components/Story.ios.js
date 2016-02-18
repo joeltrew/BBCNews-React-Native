@@ -40,10 +40,19 @@ export default class Story extends React.Component {
     console.log(collection);
   }
 
+  truncateTitle(title) {
+    if (title.length > 15) {
+      return `${title.substring(0, 15)}...`
+    } else {
+      return title;
+    }
+  }
+
   pressedStory(story) {
     this.props.navigator.push({
       component: StoryDetail,
-      props: {story, navigator: this.props.navigator}
+      title: this.truncateTitle(story.content.name),
+      passProps: {story, navigator: this.props.navigator}
     });
   }
 
