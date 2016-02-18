@@ -9,7 +9,6 @@
 
 var Loader = require('react-native-angular-activity-indicator');
 var Story = require('./Story');
-
 var Feed = React.createClass({
 
 
@@ -28,31 +27,39 @@ var Feed = React.createClass({
       this.fetchData()
     },
 
+    filterNews(news) {
+      return new Promise((res, rej) => {
+         const filtered = news.filter( item => {
+            return item.content.format === 'bbc.mobile.news.format.textual'
+        })
+         res(filtered);
+      })
+      
+    },
+
     fetchData() {
       this.setState({isRefreshing: true});
 
       fetch('http://trevor-producer-cdn.api.bbci.co.uk/content/cps/news/world')
       .then((response) => response.json())
-      .then((responseData) => {
-
-        this.setState({isAnimating: false})
-        
-        setTimeout(() => {
+      .then((responseData) => this.filterNews(responseData.relations))
+      .then((newsItems) => 
+      { 
           this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(responseData.relations),
+            dataSource: this.state.dataSource.cloneWithRows(newsItems),
             loaded: true,
-            isRefreshing: false
+            isRefreshing: false,
+            isAnimating: false
+          })
 
-          });
-        },200)
-      })
-      .done();
-    },
+      
+    }).done();
+  },
 
     renderLoading() {
       return (
         <View style={{flexDirection: 'row', justifyContent: 'center', flex: 1}}>
-        <Loader isAnimating={this.state.isAnimating} lineWidth={10} color={'#ff00ff'} style={styles.loadingView}/>
+          <Loader isAnimating={this.state.isAnimating} lineWidth={10} color={'#ff00ff'} style={styles.loadingView}/>
         </View>
         );
     },
@@ -61,14 +68,6 @@ var Feed = React.createClass({
       return (
         <Story story={story} navigator={this.props.navigator}></Story>
         );
-    },
-
-    handleScroll(event) {
-      if(event.nativeEvent.contentOffset.y > 40) {
-        this.props.changeNavBarHeight(true);
-      } else {
-        this.props.changeNavBarHeight(false);
-      }
     },
 
     render: function() {
@@ -82,8 +81,7 @@ var Feed = React.createClass({
         dataSource={this.state.dataSource}
         renderRow={this.renderStories}
         style={styles.listView}
-        contentInset={{top:60,left:0,right:0,bottom:0}}
-        contentOffset={{x:0, y:-60}}
+        contentInset={{top: 0, left: 0, bottom: 64, right: 0} }
  
         scrollEventThrottle={200}
         {...this.props}
@@ -91,9 +89,8 @@ var Feed = React.createClass({
           <RefreshControl
           refreshing={this.state.isRefreshing}
           onRefresh={this.fetchData}
-          tintColor="#ff0000"
+          tintColor="#bb1919"
           title="Loading..."
-          colors={['#ff0000', '#00ff00', '#0000ff']}
           progressBackgroundColor="#ffff00"
 
           />
