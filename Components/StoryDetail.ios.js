@@ -71,7 +71,7 @@ export default class StoryDetail extends React.Component {
       })
 
       XMLToReactMap.createReactElementsWithXMLRoot(rootElement, media).then(array => {
-        var scroll = React.createElement(ScrollView, {contentInset:{top: 0, left: 0, bottom: 64, right: 0}, style:{flex: 1, flexDirection: 'column', backgroundColor: 'white'}}, array)
+        var scroll = React.createElement(ScrollView, {contentInset:{top: 0, left: 0, bottom: 64, right: 0}, style:{flex: 1, flexDirection: 'column', backgroundColor: 'white'}, accessibilityLabel:"Story Detail"}, array)
 
       this.setState({loading: false, elements:scroll})
       })

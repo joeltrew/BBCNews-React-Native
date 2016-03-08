@@ -8,6 +8,7 @@
   TouchableHighlight,
 } = React;
 
+import Feed from './Feed';
 var StoryDetail = require('./StoryDetail');
 
 var moment = require('moment');
@@ -23,21 +24,24 @@ export default class Story extends React.Component {
   }
 
   getCollectionForStory(story) {
+    console.log('STORY', story)
     if (story.content.relations && story.content.relations.length) {
 
-      return story.content.relations.filter( item => {
+      return story.content.relations.find( item => {
         return item.primaryType === 'bbc.mobile.news.collection'
-      }).map( item => {
-        return item.content.name
-      })[0];
+      })
 
     } else {
-      return ""
+      throw "No collection found"
     }
   }
 
   pressedCollection(collection) {
-    console.log(collection);
+    this.props.navigator.push({
+      component: Feed,
+      title: collection.content.name,
+      passProps: {collection: collection.content.id, navigator: this.props.navigator}
+    })
   }
 
   truncateTitle(title) {
@@ -59,11 +63,13 @@ export default class Story extends React.Component {
   render() {
   	var story = this.props.story;
     var time = moment.unix((story.content.lastUpdated / 1000 )).fromNow();
-    var collection = this.getCollectionForStory(story);
+    var collection = this.getCollectionForStory(story) || {}
+
+    console.log(collection)
 
     return (
       <TouchableHighlight underlayColor={'white'} onPress={() => this.pressedStory(story)}>
-        <View>
+        <View testID={"Story"}>
             <View style={styles.container}>
               <View style={styles.imageContainer}>
                 <Image source={{uri: story.content.relations[0].content.href}} style={styles.thumbnail} />
@@ -76,7 +82,7 @@ export default class Story extends React.Component {
                 <Text style={styles.timeStamp}>{time}</Text>
                 <Text style={styles.border}>|</Text>
                 <TouchableHighlight onPress={() => this.pressedCollection(collection)} >
-                  <Text style={styles.collection}>{collection}</Text>
+                  <Text style={styles.collection}>{collection.content ? collection.content.name : ""}</Text>
                 </TouchableHighlight>
               </View>
             </View>

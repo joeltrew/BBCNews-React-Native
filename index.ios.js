@@ -15,7 +15,7 @@
   TouchableOpacity
 } = React;
 
-var Feed = require('./Components/Feed');
+import Feed from './Components/Feed';
 
 var BBCNews = React.createClass({
 
