@@ -11,12 +11,8 @@
 } = React;
 
 var moment = require('moment');
-var LinearGradient = require('react-native-linear-gradient');
 var Link = require('./Link');
-
-var xml = require('../Libraries/XMLParser/XMLParser').parseXMLtoObject;
 var htmlparser = require('htmlparser');
-
 var XMLToReactMap = require('../XMLToReactMap');
 
 export default class StoryDetail extends React.Component {
