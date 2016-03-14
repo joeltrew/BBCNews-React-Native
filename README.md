@@ -8,7 +8,7 @@ A basic implementation of the BBC News app built using React Native, the project
 The app uses the same BBC News API as the official one, but is subject to change at any time so could break at any time.
 
 The app parses the BBC's XML story structure and maps each item to react components.
-The app is currently set to the topic of world news, additional news feeds to be implemented soon.
+The app defaults to the topic of world news,pressing the topics under stories will laod those feeds, a way to view specific news feeds will be implemented soon.
 
 Supports:
 - Videos  
@@ -18,7 +18,7 @@ Supports:
 
 To-do:  
 - Internal article links  
-- Additional news feeds  / Change topics
+- Select a news feed topic
 
 
 The app is currently iOS only, but I would like to expand to android in the future.
