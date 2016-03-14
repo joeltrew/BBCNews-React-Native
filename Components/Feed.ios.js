@@ -27,7 +27,7 @@ var Feed = React.createClass({
       this.fetchData()
     },
 
-    filterNews(news) {
+    filterNews(news = []) {
       return new Promise((res, rej) => {
          const filtered = news.filter( item => {
             return item.content.format === 'bbc.mobile.news.format.textual'
@@ -40,7 +40,7 @@ var Feed = React.createClass({
     fetchData() {
       this.setState({isRefreshing: true});
 
-      fetch('http://trevor-producer-cdn.api.bbci.co.uk/content/cps/news/world')
+      fetch(`http://trevor-producer-cdn.api.bbci.co.uk/content${this.props.collection || '/cps/news/world'}`)
       .then((response) => response.json())
       .then((responseData) => this.filterNews(responseData.relations))
       .then((newsItems) => 
@@ -77,7 +77,9 @@ var Feed = React.createClass({
       }
 
       return (
+
         <ListView
+        testID={"Feed Screen"}
         dataSource={this.state.dataSource}
         renderRow={this.renderStories}
         style={styles.listView}
@@ -114,4 +116,4 @@ var Feed = React.createClass({
 
 });
 
-module.exports = Feed;
+export default Feed;
