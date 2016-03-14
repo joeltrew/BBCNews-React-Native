@@ -22,9 +22,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		FF15FE811C59738C00E4BC7E /* libAngularActivityLoadingIndicator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF15FE801C59738200E4BC7E /* libAngularActivityLoadingIndicator.a */; };
-		FF15FF111C59898700E4BC7E /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF15FF101C59897800E4BC7E /* libBVLinearGradient.a */; };
 		FF65B65C1C5D7768000EB54D /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF65B6581C5D7740000EB54D /* libRCTVideo.a */; };
+		FFD776151C96C14500522A2D /* libAngularActivityLoadingIndicator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD776141C96C13600522A2D /* libAngularActivityLoadingIndicator.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,26 +104,19 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
-		FF15FE7F1C59738200E4BC7E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FF15FE7B1C59738200E4BC7E /* AngularActivityLoadingIndicator.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = AngularActivityLoadingIndicator;
-		};
-		FF15FF0F1C59897800E4BC7E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FF15FF0B1C59897800E4BC7E /* BVLinearGradient.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = BVLinearGradient;
-		};
 		FF65B6571C5D7740000EB54D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FF65B6491C5D7740000EB54D /* RCTVideo.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTVideo;
+		};
+		FFD776131C96C13600522A2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFD7760F1C96C13600522A2D /* AngularActivityLoadingIndicator.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = AngularActivityLoadingIndicator;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -150,9 +142,8 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		FF15FE7B1C59738200E4BC7E /* AngularActivityLoadingIndicator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AngularActivityLoadingIndicator.xcodeproj; path = ../Libraries/AngularActivityLoadingIndicator/AngularActivityLoadingIndicator.xcodeproj; sourceTree = "<group>"; };
-		FF15FF0B1C59897800E4BC7E /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		FF65B6491C5D7740000EB54D /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
+		FFD7760F1C96C13600522A2D /* AngularActivityLoadingIndicator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AngularActivityLoadingIndicator.xcodeproj; path = "../node_modules/react-native-angular-activity-indicator/AngularActivityLoadingIndicator.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,9 +158,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFD776151C96C14500522A2D /* libAngularActivityLoadingIndicator.a in Frameworks */,
 				FF65B65C1C5D7768000EB54D /* libRCTVideo.a in Frameworks */,
-				FF15FF111C59898700E4BC7E /* libBVLinearGradient.a in Frameworks */,
-				FF15FE811C59738C00E4BC7E /* libAngularActivityLoadingIndicator.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
@@ -292,9 +282,8 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				FFD7760F1C96C13600522A2D /* AngularActivityLoadingIndicator.xcodeproj */,
 				FF65B6491C5D7740000EB54D /* RCTVideo.xcodeproj */,
-				FF15FF0B1C59897800E4BC7E /* BVLinearGradient.xcodeproj */,
-				FF15FE7B1C59738200E4BC7E /* AngularActivityLoadingIndicator.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
@@ -338,26 +327,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FF15FE7C1C59738200E4BC7E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FF15FE801C59738200E4BC7E /* libAngularActivityLoadingIndicator.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FF15FF0C1C59897800E4BC7E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FF15FF101C59897800E4BC7E /* libBVLinearGradient.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		FF65B64A1C5D7740000EB54D /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				FF65B6581C5D7740000EB54D /* libRCTVideo.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FFD776101C96C13600522A2D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFD776141C96C13600522A2D /* libAngularActivityLoadingIndicator.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -429,12 +410,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = FF15FE7C1C59738200E4BC7E /* Products */;
-					ProjectRef = FF15FE7B1C59738200E4BC7E /* AngularActivityLoadingIndicator.xcodeproj */;
-				},
-				{
-					ProductGroup = FF15FF0C1C59897800E4BC7E /* Products */;
-					ProjectRef = FF15FF0B1C59897800E4BC7E /* BVLinearGradient.xcodeproj */;
+					ProductGroup = FFD776101C96C13600522A2D /* Products */;
+					ProjectRef = FFD7760F1C96C13600522A2D /* AngularActivityLoadingIndicator.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
@@ -560,25 +537,18 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		FF15FE801C59738200E4BC7E /* libAngularActivityLoadingIndicator.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libAngularActivityLoadingIndicator.a;
-			remoteRef = FF15FE7F1C59738200E4BC7E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FF15FF101C59897800E4BC7E /* libBVLinearGradient.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libBVLinearGradient.a;
-			remoteRef = FF15FF0F1C59897800E4BC7E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		FF65B6581C5D7740000EB54D /* libRCTVideo.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRCTVideo.a;
 			remoteRef = FF65B6571C5D7740000EB54D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FFD776141C96C13600522A2D /* libAngularActivityLoadingIndicator.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAngularActivityLoadingIndicator.a;
+			remoteRef = FFD776131C96C13600522A2D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
