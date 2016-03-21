@@ -15,16 +15,16 @@ var moment = require('moment');
 
 export default class Story extends React.Component {
   
-  static propTypes = {
-    name: React.PropTypes.string,
-  };
+  // static propTypes = {
+  //   name: React.PropTypes.string,
+  // };
 
   constructor(props) {
     super(props);
   }
 
   getCollectionForStory(story) {
-    console.log('STORY', story)
+    console.log('collect')
     if (story.content.relations && story.content.relations.length) {
 
       return story.content.relations.find( item => {
@@ -32,11 +32,12 @@ export default class Story extends React.Component {
       })
 
     } else {
-      throw "No collection found"
+      console.log('No collection found')
     }
   }
 
   pressedCollection(collection) {
+    console.log('pressed')
     this.props.navigator.push({
       component: Feed,
       title: collection.content.name,
@@ -65,7 +66,6 @@ export default class Story extends React.Component {
     var time = moment.unix((story.content.lastUpdated / 1000 )).fromNow();
     var collection = this.getCollectionForStory(story) || {}
 
-    console.log(collection)
 
     return (
       <TouchableHighlight underlayColor={'white'} onPress={() => this.pressedStory(story)}>

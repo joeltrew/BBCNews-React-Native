@@ -1,0 +1,58 @@
+{
+	"eTag": "bfe521011def9f3af654d2ce54e7800f",
+	"primaryType": "bbc.mobile.news.item",
+	"secondaryType": "bbc.mobile.news.group.other-top-stories",
+	"content": {
+		"id": "/cps/news/world-europe-35856938",
+		"type": "bbc.mobile.news.item",
+		"format": "bbc.mobile.news.format.textual",
+		"language": "en-gb",
+		"lastUpdated": 1458491357000,
+		"site": "/news",
+		"name": "Kosovo PM Isa Mustafa's brother sought Germany asylum",
+		"summary": "The brother of Kosovo Prime Minister Isa Mustafa was one of many seeking asylum in Germany last year.",
+		"shortName": "Kosovo PM's brother sought asylum",
+		"iStatsCounter": "news.world.europe.story.35856938.page",
+		"relations": [{
+			"primaryType": "bbc.mobile.news.image",
+			"secondaryType": "bbc.mobile.news.placement.index",
+			"content": {
+				"id": "/cpsprodpb/6E60/production/_88865282_88865281.jpg",
+				"type": "bbc.mobile.news.image",
+				"width": 738,
+				"height": 415,
+				"href": "http://c.files.bbci.co.uk/6E60/production/_88865282_88865281.jpg",
+				"altText": "Isa Mustafa",
+				"copyrightHolder": "BBC",
+				"relations": []
+			}
+		}, {
+			"primaryType": "bbc.mobile.news.collection",
+			"secondaryType": "bbc.mobile.news.home_section",
+			"content": {
+				"id": "/cps/news/world/europe",
+				"type": "bbc.mobile.news.collection",
+				"format": "bbc.mobile.news.cps.idx",
+				"language": "en-gb",
+				"lastUpdated": 1458498461000,
+				"site": "/news",
+				"name": "Europe",
+				"summary": "Get the latest European news from BBC News in Europe: headlines, features and analysis from BBC correspondents across the European Union, EU, and the rest of Europe.",
+				"iStatsCounter": "news.world.europe.page",
+				"iStatsLabels": {
+					"page_type": "index",
+					"cps_asset_id": "10059386"
+				},
+				"allowAdvertising": true,
+				"relations": [],
+				"shareUrl": "http://www.bbc.co.uk/news/world/europe",
+				"eTag": "7a36610057eb34fb437dbf9b6bca15b5"
+			}
+		}],
+		"shareUrl": "http://www.bbc.co.uk/news/world-europe-35856938",
+		"iStatsLabels": {
+			"page_type": "story",
+			"cps_asset_id": "35856938"
+		}
+	}
+}

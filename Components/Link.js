@@ -10,10 +10,7 @@ var StoryDetail = require('./StoryDetail');
 
 var moment = require('moment');
 
-export default class Story extends React.Component {
-  static propTypes = {
-    name: React.PropTypes.string,
-  };
+export default class Link extends React.Component {
 
   constructor(props) {
     super(props);
@@ -41,4 +38,4 @@ var styles = StyleSheet.create({
 	}
 });
 
-module.exports = Story;
+module.exports = Link;
