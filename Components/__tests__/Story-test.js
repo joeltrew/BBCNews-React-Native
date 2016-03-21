@@ -15,9 +15,9 @@ import utils from 'react-addons-test-utils';
  * ## Under test
  * class under test
  */
+ jest.dontMock('../Story')
 var Story = require('../Story')
 var mockStory = require('./mockStory.json');
-jest.autoMockOn();
 
 /**
  * ## Test
