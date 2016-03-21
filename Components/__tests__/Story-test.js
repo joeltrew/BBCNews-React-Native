@@ -32,6 +32,7 @@ describe('Story', () => {
 
   function renderStory(props) {
     const renderer = utils.createRenderer();
+    console.log('Story', Story)
     renderer.render(<Story {...props}/>);
     const output = renderer.getRenderOutput();
     return {
