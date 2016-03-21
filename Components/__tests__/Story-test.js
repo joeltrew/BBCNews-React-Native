@@ -44,20 +44,12 @@ describe('Story', () => {
   /**
    * ### it should display the event name of the event its given
    */    
-  it('should display the story title', () => {
-    const f = (item)=> {
-      console.log(item) 
-      return () => {return item}
-    }
+  it('should have correct story headline', () => {
 
-    const component = renderStory({story: mockStory, navigator: { push: f()}});
+    const component = renderStory({story: mockStory, navigator: { push: ()=>{}}});
     const {output} = component;
-
-    const hello = output.props.onPress()
-    console.log('hi', hello)
-    console.log(Story.toString())
-    console.log(output.type)
     expect(output.type.displayName).toEqual('TouchableHighlight');
+    expect(output.props.children.props.children[1].props.children[0].props.children).toBe('Test Story')
   });
 
 });
