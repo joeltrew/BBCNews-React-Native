@@ -47,6 +47,7 @@ describe('Story', () => {
   it('should have correct story headline', () => {
 
     const component = renderStory({story: mockStory, navigator: { push: ()=>{}}});
+    console.log('component', component)
     const {output} = component;
     expect(output.type.displayName).toEqual('TouchableHighlight');
     expect(output.props.children.props.children[1].props.children[0].props.children).toBe('Test Story')
